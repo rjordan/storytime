@@ -1,11 +1,12 @@
 @BASE_URL=http://localhost:3000/graphql
 @TOKEN=<TOKEN>
 
-### Stories Query
+### Users Query
+# This should be Admin only
 POST {{BASE_URL}}
 Content-Type: application/json
 Authorization: Bearer {{TOKEN}}
 
 {
-  "query": "query Stories { stories { id name } }",
+  "query": "query { users { id name email } }"
 }
