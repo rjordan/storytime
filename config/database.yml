@@ -18,11 +18,13 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
+  host: localhost
+  username: <%= ENV["DATABASE_USER"] || "postgres" %>
+  password: <%= ENV["DATABASE_PASSWORD"] || "password" %>
 
 development:
   <<: *default
-  database: storytime_development
+  database: storytime_dev
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -81,18 +83,16 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: storytime_production
-    username: storytime
-    password: <%= ENV["STORYTIME_DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-    database: storytime_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    database: storytime_production_queue
-    migrations_paths: db/queue_migrate
-  cable:
-    <<: *primary_production
-    database: storytime_production_cable
-    migrations_paths: db/cable_migrate
+    database: storytime
+  # cache:
+  #   <<: *primary_production
+  #   database: storytime_production_cache
+  #   migrations_paths: db/cache_migrate
+  # queue:
+  #   <<: *primary_production
+  #   database: storytime_production_queue
+  #   migrations_paths: db/queue_migrate
+  # cable:
+  #   <<: *primary_production
+  #   database: storytime_production_cable
+  #   migrations_paths: db/cable_migrate

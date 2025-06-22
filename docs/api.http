@@ -1,0 +1,11 @@
+@BASE_URL=http://localhost:3000/graphql
+@TOKEN=<TOKEN>
+
+### Stories Query
+POST {{BASE_URL}}
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+{
+  "query": "query Stories { stories { id name } }",
+}
