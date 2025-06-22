@@ -62,3 +62,5 @@ group :test do
 end
 
 gem "graphiql-rails", "~> 1.10"
+
+gem "faker", "~> 3.5"
