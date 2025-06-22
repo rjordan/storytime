@@ -6,7 +6,24 @@
 POST {{BASE_URL}}
 Content-Type: application/json
 Authorization: Bearer {{TOKEN}}
+X-REQUEST-TYPE: GraphQL
 
-{
-  "query": "query { users { id name email } }"
+query {
+  users {
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    edges {
+      node {
+        id
+        name
+        email
+        createdAt
+        updatedAt
+      }
+    }
+  }
 }

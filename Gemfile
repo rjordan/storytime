@@ -60,3 +60,5 @@ end
 group :test do
   gem "launchy"
 end
+
+gem "graphiql-rails", "~> 1.10"
