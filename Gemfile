@@ -53,7 +53,7 @@ group :development, :test do
   gem "dotenv-rails"
   gem "factory_bot_rails"
   #  gem "ruby-debug-ide"
-  gem "rspec-rails", "~> 8.0.0"
+  gem "rspec-rails", "~> 8.0.2"
   gem "shoulda-matchers"
 end
 
